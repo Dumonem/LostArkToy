@@ -1,3 +1,5 @@
+import { insertMarketList } from './api/ctrl';
+
 require('dotenv').config();
 import cron from 'node-cron';
 import mongoose from 'mongoose';
@@ -38,7 +40,7 @@ process.on('uncaughtException', (err) => {
 cron.schedule(
 	'*/5 * * * *',
 	() => {
-		apiCtrl.getMarketList().then(
+		apiCtrl.insertMarketList().then(
 			() => {
 				console.log('데이터 입력 성공');
 			},
